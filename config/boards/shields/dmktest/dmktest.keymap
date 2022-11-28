@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/backlight.h>
 
 #define DEFAULT 0
 #define BT   1
@@ -22,7 +23,7 @@
         bt_layer {
             bindings = <
     &tog BT      &none        &reset       &bootloader
-    &none       &bl BL_TOG   &bl BL_DEC 4 &bl BL_INC
+    &none       &bl BL_TOG   &bl BL_DEC   &bl BL_INC
     &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2
             >;
         };
