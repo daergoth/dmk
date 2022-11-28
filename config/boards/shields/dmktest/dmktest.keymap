@@ -22,7 +22,7 @@
         bt_layer {
             bindings = <
     &tog BT      &none        &reset       &bootloader
-    &none       &bt BT_SEL 3 &bt BT_SEL 4 &none
+    &none       &bl BL_TOG   &bl BL_DEC 4 &bl BL_INC
     &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2
             >;
         };
