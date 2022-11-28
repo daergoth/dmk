@@ -13,7 +13,7 @@
 #
 ---
 include:
-  - board: nrfmicro_13
-    shield: boardsource3x4
+#  - board: nrfmicro_13
+#    shield: boardsource3x4
   - board: nrfmicro_13
     shield: dmktest
