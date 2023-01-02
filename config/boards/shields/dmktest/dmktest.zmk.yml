@@ -4,6 +4,8 @@ name: DMK Test
 type: shield
 url: https://github.com/daergoth/dmk/
 requires: [pro_micro]
+exposes: [i2c_oled]
 features:
   - keys
   - backlight
+  - display
