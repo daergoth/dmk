@@ -12,7 +12,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
-
+            label = "Default";
             bindings = <
     &tog BT      &kp Q    &kp W   &kp E
     &kp LSHIFT  &kp A    &kp S   &kp D
@@ -22,6 +22,7 @@
         };
 
         bt_layer {
+            label = "Bluetooth";
             bindings = <
     &tog BT     &ext_power EP_TOG       &reset       &bootloader
     &none       &bl BL_TOG              &bl BL_DEC   &bl BL_INC
