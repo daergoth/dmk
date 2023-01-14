@@ -1,0 +1,10 @@
+file_format: "1"
+id: whitepad5x7
+name: Whitepad 5x7
+type: shield
+url: https://github.com/daergoth/dmk/
+requires: [pro_micro]
+features:
+  - keys
+  - backlight
+  - encoder

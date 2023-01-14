@@ -1,0 +1,16 @@
+if SHIELD_WHITEPAD5X7
+
+config ZMK_KEYBOARD_NAME
+    default "whitepad 5x7"
+
+if ZMK_BACKLIGHT
+
+config PWM
+    default y
+
+config LED_PWM
+    default y
+
+endif # ZMK_BACKLIGHT
+
+endif # SHIELD_DMKTEST

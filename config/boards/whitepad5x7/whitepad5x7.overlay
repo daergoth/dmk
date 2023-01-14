@@ -1,0 +1,56 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+
+&pwm0 {
+    status = "okay";
+    ch0-pin = <6>;
+    /* ch0-inverted; */
+};
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,backlight = &backlight;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+        diode-direction = "col2row";
+
+         row-gpios
+            = <&pro_micro 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+
+        col-gpios
+            = <&pro_micro 20 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 14 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 13 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 10 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 11 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 12 GPIO_ACTIVE_HIGH>
+            ;
+    };
+
+    backlight: pwmleds {
+        compatible = "pwm-leds";
+        label = "Backlight LEDs";
+        pwm_led_0 {
+            pwms = <&pwm0 6>;
+            label = "Backlight LED 0";
+        };
+    };
+
+    left_encoder: left_encoder {
+        compatible = "alps,ec11";
+        label = "Top Encoder";
+        a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        resolution = <4>;
+        status = "disabled";
+    };
+};
