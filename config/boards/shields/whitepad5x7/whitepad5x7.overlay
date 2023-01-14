@@ -3,6 +3,9 @@
 &pwm0 {
     status = "okay";
     ch0-pin = <6>;
+    ch1-pin = <17>;
+    ch2-pin = <15>;
+    ch3-pin = <8>;
     /* ch0-inverted; */
 };
 
@@ -41,7 +44,19 @@
         label = "Backlight LEDs";
         pwm_led_0 {
             pwms = <&pwm0 6>;
-            label = "Backlight LED 0";
+            label = "Backlight LED";
+        };
+        pwm_led_1 {
+            pwms = <&pwm0 17>;
+            label = "Mode LED 1";
+        };
+        pwm_led_2 {
+            pwms = <&pwm0 15>;
+            label = "Mode LED 2";
+        };
+        pwm_led_3 {
+            pwms = <&pwm0 8>;
+            label = "Mode LED 3";
         };
     };
 

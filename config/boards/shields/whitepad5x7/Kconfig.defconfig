@@ -1,7 +1,7 @@
 if SHIELD_WHITEPAD5X7
 
 config ZMK_KEYBOARD_NAME
-    default "whitepad 5x7"
+    default "Whitepad 5x7"
 
 if ZMK_BACKLIGHT
 
