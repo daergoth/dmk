@@ -43,19 +43,19 @@
         compatible = "pwm-leds";
         label = "Backlight LEDs";
         pwm_led_0 {
-            pwms = <&pwm0 6>;
+            pwms = <&pwm0 6 10000 PWM_POLARITY_NORMAL>;
             label = "Backlight LED";
         };
         pwm_led_1 {
-            pwms = <&pwm0 17>;
+            pwms = <&pwm0 17 10000 PWM_POLARITY_NORMAL>;
             label = "Mode LED 1";
         };
         pwm_led_2 {
-            pwms = <&pwm0 15>;
+            pwms = <&pwm0 15 10000 PWM_POLARITY_NORMAL>;
             label = "Mode LED 2";
         };
         pwm_led_3 {
-            pwms = <&pwm0 8>;
+            pwms = <&pwm0 8 10000 PWM_POLARITY_NORMAL>;
             label = "Mode LED 3";
         };
     };
