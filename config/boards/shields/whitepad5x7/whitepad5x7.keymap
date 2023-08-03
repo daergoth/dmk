@@ -37,7 +37,7 @@
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
-        right_layer {
+        portrait_layer {
             label = "Portrait";
             bindings = <
                 &kp C_MUTE     &kp F4   &kp N4     &kp R    &kp F     &kp V       &kp SPACE
