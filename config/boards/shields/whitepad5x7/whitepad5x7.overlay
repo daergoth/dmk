@@ -6,6 +6,7 @@
     pinctrl-1 = <&pwm1_default>;
     pinctrl-2 = <&pwm2_default>;
     pinctrl-3 = <&pwm3_default>;
+    pinctrl-names = "default", "default", "default", "default";
 };
 
 &pinctrl {
