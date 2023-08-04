@@ -2,8 +2,8 @@
 
 &pwm0 {
     status = "okay";
-    pinctrl-0 = <&pwm0_default &pwm1_default &pwm2_default &pwm3_default>;
-    pinctrl-1 = <&pwm0_sleep &pwm1_sleep &pwm2_sleep &pwm3_sleep>;
+    pinctrl-0 = <&pwm0_default>;
+    pinctrl-1 = <&pwm0_sleep>;
     pinctrl-names = "default", "sleep";
 };
 
@@ -13,51 +13,16 @@
             psels = <NRF_PSEL(PWM_OUT0, 0, 6)>;
             nordic,invert; 
 	    };
+
+        group2 {
+            psels = <NRF_PSEL(PWM_OUT1, 0, 17), NRF_PSEL(PWM_OUT2, 0, 15), NRF_PSEL(PWM_OUT3, 0, 8)>;
+        };
     };
 
-    pwm1_default: pwm1_default {
-        group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 17)>;
-	    };
-    };
-
-    pwm2_default: pwm2_default {
-        group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 15)>;
-	    };
-    };
-
-    pwm3_default: pwm3_default {
-        group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 8)>;
-	    };
-    };
 
     pwm0_sleep: pwm0_sleep {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 6)>;
-            nordic,invert; 
-            low-power-enable;
-	    };
-    };
-
-    pwm1_sleep: pwm1_sleep {
-        group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 17)>;
-            low-power-enable;
-	    };
-    };
-
-    pwm2_sleep: pwm2_sleep {
-        group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 15)>;
-            low-power-enable;
-	    };
-    };
-
-    pwm3_sleep: pwm3_sleep {
-        group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 8)>;
+            psels = <NRF_PSEL(PWM_OUT0, 0, 6), NRF_PSEL(PWM_OUT1, 0, 17), NRF_PSEL(PWM_OUT2, 0, 15), NRF_PSEL(PWM_OUT3, 0, 8)>;
             low-power-enable;
 	    };
     };
@@ -95,8 +60,20 @@
 
     backlight: pwmleds {
         compatible = "pwm-leds";
-        pwm_led_0 {
-            pwms = <&pwm0 0 10000 PWM_POLARITY_NORMAL>;
+        pwm_led_bl0 {
+            pwms = <&pwm0 0 10000 PWM_POLARITY_INVERTED>;
+        };
+
+        pwm_led_m1 {
+            pwms = <&pwm0 1 10000 PWM_POLARITY_NORMAL>;
+        };
+
+        pwm_led_m2 {
+            pwms = <&pwm0 2 10000 PWM_POLARITY_NORMAL>;
+        };
+
+        pwm_led_m3 {
+            pwms = <&pwm0 3 10000 PWM_POLARITY_NORMAL>;
         };
     };
 
