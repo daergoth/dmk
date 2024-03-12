@@ -56,7 +56,7 @@
     backlight: pwmleds {
         compatible = "pwm-leds";
         pwm_led_0 {
-            pwms = <&pwm0 0 10000 PWM_POLARITY_INVERTED>;
+            pwms = <&pwm0 0 10000 PWM_POLARITY_NORMAL>;
         };
     };
 
@@ -87,5 +87,6 @@
         com-invdir;
         com-sequential;
         prechargep = <0x22>;
+        inversion-on;
     };
 };
