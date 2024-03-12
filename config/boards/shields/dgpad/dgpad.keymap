@@ -1,0 +1,83 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/backlight.h>
+#include <dt-bindings/zmk/ext_power.h>
+
+#define DEFAULT 0
+#define BT   1
+#define BL   2
+#define DBG  3
+
+/ {
+    sensors {
+		compatible = "zmk,keymap-sensors";
+		sensors = <&left_encoder>;
+        triggers-per-rotation = <40>;
+	};
+
+    behaviors {
+        bl_encoder: bl_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&bl BL_INC>, <&bl BL_DEC>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            label = "Default";
+            bindings = <
+                &to BT        &none  &none  &none  &none
+                &kp TAB       &kp Q  &kp W  &none  &none
+                &kp CAPSLOCK  &kp A  &kp S  &none  &none
+                &none         &none  &none  &none  &none
+                &none         &none  &none  &none  &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        bt_layer {
+            label = "Bluetooth";
+            bindings = <
+                &to BL         &none       &none       &none  &none
+                &bt BT_CLR     &bt BT_PRV  &bt BT_NXT  &none  &none
+                &bt BT_CLR_ALL &none       &none       &none  &none
+                &none          &none       &none       &none  &none
+                &none          &none       &none       &none  &none
+            >;
+            
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        bl_layer {
+            label = "Backlight";
+            bindings = <
+                &to DBG       &none         &none           &none  &none
+                &bl BL_TOG    &bl BL_DEC    &bl BL_INC      &none  &none
+                &bl BL_SET 10 &bl BL_SET 50 &bl BL_SET 100  &none  &none
+                &none         &none         &none           &none  &none
+                &none         &none         &none           &none  &none
+            >;
+
+            sensor-bindings = <&bl_encoder>;
+        };
+
+        dbg_layer {
+            label = "Debug";
+            bindings = <
+                &to DEFAULT       &none       &none        &none  &none
+                &ext_power EP_TOG &none       &none        &none  &none
+                &out OUT_TOG      &sys_reset  &bootloader  &none  &none
+                &none             &none       &none        &none  &none
+                &none             &none       &none        &none  &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+    };
+};

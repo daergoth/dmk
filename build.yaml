@@ -17,5 +17,7 @@ include:
 #    shield: boardsource3x4
 #  - board: nrfmicro_13
 #    shield: dmktest
+#  - board: nrfmicro_13
+#    shield: whitepad5x7
   - board: nrfmicro_13
-    shield: whitepad5x7
+    shield: dgpad
