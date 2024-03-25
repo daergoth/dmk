@@ -28,7 +28,7 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,backlight = &backlight;
-        zephyr,display = &oled;
+        //zephyr,display = &oled;
     };
 
     kscan0: kscan {
@@ -70,7 +70,7 @@
     };
 };
 
-&pro_micro_i2c {
+/* &pro_micro_i2c {
     status = "okay";
 
     oled: ssd1306@3c {
@@ -89,8 +89,4 @@
         prechargep = <0x22>;
         inversion-on;
     };
-};
-
-nice_view_spi: &spi0 {
-    cs-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
-};
+}; */
