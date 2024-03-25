@@ -65,7 +65,7 @@
         label = "Left Encoder";
         a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <40>;
+        steps = <20>;
         status = "okay";
     };
 };
@@ -89,4 +89,8 @@
         prechargep = <0x22>;
         inversion-on;
     };
+};
+
+nice_view_spi: &spi0 {
+    cs-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
 };

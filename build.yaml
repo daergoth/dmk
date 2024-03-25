@@ -20,4 +20,4 @@ include:
 #  - board: nrfmicro_13
 #    shield: whitepad5x7
   - board: nrfmicro_13
-    shield: dgpad
+    shield: dgpad nice_view_adapter nice_view
